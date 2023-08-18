@@ -1,5 +1,5 @@
 
-# Project Name - API Routes Documentation
+# Project Name - Learning Management System
 
 Welcome to the documentation for the API routes implemented in this project. This guide will provide you with an overview of the available routes and their functionalities.
 

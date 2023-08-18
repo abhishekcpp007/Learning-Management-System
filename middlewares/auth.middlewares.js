@@ -1,3 +1,4 @@
+const { async } = require('q');
 const AppError=require('../utils/appError') 
 
 const isLoggedIn=function(req,res,next){
@@ -22,7 +23,19 @@ if(roles.includes(currentRole)){
 }
   next();
 }
+ const  authorizedSuscriber= async(req,,res,next)=>{
+ const subscriptionStatus= req.user.subscription.status;
+ const currentRole =req.user.roles;
+ if(currentRole=='ADMIN' && subscriptionStatus !=='active')
+ return next(
+new AppError('Please subscribe to access this route',403)
+ )
+ 
+  next()
+ }
+ 
   module.exports={
     isLoggedIn,
-    authorizedRoles
+    authorizedRoles,
+    authorizedSuscriber
   }

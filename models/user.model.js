@@ -3,6 +3,7 @@ const bcrypt=require('bcryptjs')
 const jwt = require('jsonwebtoken');
 const crypto=require('crypto')
 const { async } = require('q');
+const { stringify } = require('querystring');
 
 const userSchema=new Schema({
   fullName:{
@@ -48,7 +49,11 @@ const userSchema=new Schema({
     }
   },
   forgotPasswordToken:String,
-  forgotPasswordExpiry:Date
+  forgotPasswordExpiry:Date,
+  subscription:{
+  id:String,
+  status:String
+  }
   
 },
 {
